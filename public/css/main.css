@@ -1,0 +1,117 @@
+/* 
+    Document   : main
+    Created on : Apr 16, 2012, 8:24:20 AM
+    Author     : ClicknPay
+    Description:
+        Main Style Sheet template.
+*/
+
+body { 
+    font-family: Gill, Helvetica, sans-serif;
+}
+
+.content{
+    width:800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header_nav_wrap{
+    width:800px;
+    border: thin;
+    border-style: solid;
+    background-color: #99ccff; 
+    margin-bottom:2px;
+}
+
+.header_nav{
+    list-style:none;
+    text-align:center;
+}
+
+.header_nav li{
+    display:inline; 
+}
+
+.body_wrap{
+    border: thin;
+    border-style: solid;    
+    background-color:#e2dede;
+    min-height:500px; 
+    width:760px;
+    padding:20px;
+}
+
+.page_wrapper{
+    
+    border: thin;
+    border-style: solid;
+    background-color:#ffffff;
+    background-image:url('../images/logo.gif');
+    background-repeat:no-repeat;
+    background-position:right bottom;
+    min-height:460px; 
+    width:720px;
+    padding:20px; 
+    text-align: center;
+}
+
+.footer_wrap{
+    margin-top:2px;
+    border: thin;
+    border-style: solid;    
+    background-color:#ffffff;
+    min-height:100px; 
+    width:780px;
+    padding-top:20px;
+    padding-left:20px;
+}
+
+.message_list{
+    text-align:left;
+    font-size:.8em;
+    list-style: decimal;
+    padding-bottom:2px;
+}
+
+.message_list li{
+    margin-bottom: 4px;
+
+}
+
+.contact_wrapper{
+    display:block;
+    
+}
+
+.contact_left{
+    float:left;
+    width:350px;
+}
+
+.contact_right{
+    float:right;
+    width:325px;
+}
+
+
+.contact_form {
+    text-align: left;
+    
+}
+.contact_form label{
+    display:block;
+}
+.contact_form input{
+    display:block;
+    width:300px;
+    padding:4px;
+    margin-bottom: 20px;
+}
+
+.contact_form textarea{
+    display:block;
+    width:300px;
+    padding:4px;
+    margin-bottom: 20px;
+}
