@@ -4,9 +4,9 @@ class Database extends PDO{
 
     protected $DB_TYPE = 'mysql';
     protected $DB_HOST = 'localhost';
-    protected $DB_NAME = 'mircomvc_demo';
+    protected $DB_NAME = 'mvc_demo';
     protected $DB_USER = 'admin';
-    protected $DB_PASS = 'Good4Now';
+    protected $DB_PASS = 'password';
     
     
     public function __construct() {

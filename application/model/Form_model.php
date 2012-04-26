@@ -2,21 +2,10 @@
 
 class Form_model extends Model {
     
-    protected static $_smtp_user = 'you@you.com';
-    protected static $_smtp_pass = 'password';
-
-    public static function primaryFilter($arg=false) {
-        
-        $arg = strip_tags($arg);
-        $arg = preg_replace('/[^(\x20-\x7F)\x0A]*/', '', $arg); //Remove Non ASCII Characters 
-        $arg = str_replace(array('`','^','%','#','*'), '', $arg);
-        $arg = filter_var($arg, FILTER_SANITIZE_STRING);
-        $arg = trim($arg);
-        return $arg;
-        
-    }
+    protected $_smtp_user = 'email@amail.com';
+    protected $_smtp_pass = 'password';
     
-    public static function contactForm($arg=false){
+    public function contactForm($arg=false){
         
         // built in filters are used like this Filter::url($arg)
         // built in filters are slower and more aggressive
@@ -40,13 +29,13 @@ class Form_model extends Model {
             );
         
         // phpmailer
-        $m = static::phpMailer($ary); 
+        $m = $this->phpMailer($ary); 
         return $m;
         
     }
     
     
-    public static function phpMailer($arg=false){
+    protected function phpMailer($arg=false){
         
         // phpmailer     
         date_default_timezone_set('America/Toronto');
@@ -63,8 +52,8 @@ class Form_model extends Model {
         $mail->SMTPAuth   = true;                   // enable SMTP authentication
         $mail->Host       = SMTP_HOST;              // sets the SMTP server
         $mail->Port       = 25;                     // set the SMTP port for the GMAIL server
-        $mail->Username   = static::$_smtp_user;    // SMTP account username
-        $mail->Password   = static::$_smtp_pass;    // SMTP account password
+        $mail->Username   = $this->_smtp_user;    // SMTP account username
+        $mail->Password   = $this->_smtp_pass;    // SMTP account password
         $mail->AddReplyTo($arg['email'], $arg['name']); //actual info
         $mail->AddAddress(SYS_EMAIL, SYS_NAME);     // site default
         $mail->SetFrom($arg['email'], $arg['name']); // displayed info

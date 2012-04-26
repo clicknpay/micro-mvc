@@ -3,7 +3,7 @@
 class Page_Model extends Model{
 
     
-    public static function test($arg=false) {
+    public function test($arg=false) {
         
         return 'page model :'.$arg;
         

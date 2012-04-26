@@ -2,7 +2,7 @@
 
 class Dashboard_model extends Model {
 
-    public static function checkLogin($arg=false) {
+    public function checkLogin($arg=false) {
 
         $db = new Database;
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);

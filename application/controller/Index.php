@@ -1,11 +1,11 @@
 <?php if ( ! defined('B_PATH')) exit('No direct script access allowed');
 
-class index extends Controller {
+class Index extends Controller {
 
-    public static function init() {
+    public function __construct() {
         
         $data['page']='index';
-        parent::view('page_view',$data);
+        $this->view('page_view',$data);
     }
 
 }

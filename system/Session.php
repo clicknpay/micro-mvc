@@ -3,18 +3,17 @@
 class Session {
     
     
-    private static $_session = false;
+    private $_session = false;
 
-
-    public static function start() {
+    public function init() {
         
-        if(static::$_session == false){
+        if($this->_session == false && empty($_SESSION)):
             session_start();
-            static::$_session = true;            
-        }
+            $this->_session = true;            
+        endif;
     }    
 
-    public static function setVal($ary) {
+    public function setVal($ary) {
         
         foreach ($ary as $key => $value) {
             $_SESSION[$key] = $value;
@@ -23,7 +22,7 @@ class Session {
         
     }
     
-    public static function getVal($key) {
+    public function getVal($key) {
         
         if(!empty($_SESSION[$key]))
             return $_SESSION[$key];
@@ -33,7 +32,7 @@ class Session {
         
     }
     
-    public static function display() {
+    public function display() {
         
         echo '<pre>';
          print_r($_SESSION);
@@ -41,7 +40,7 @@ class Session {
         
     }  
     
-    public static function destroy() {
+    public function destroy() {
         
         $_SESSION = array();
         session_destroy();          

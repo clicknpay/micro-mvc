@@ -2,9 +2,10 @@
 
 class Bootstrap {
 
-    public static function init() {
+    public function __construct() {
         
-        Session::start();
+        $session = new Session();
+        $session->init();
         
         try{
         
@@ -25,7 +26,9 @@ class Bootstrap {
             if(!empty($url[2])){
                 $M = method_exists($url[0], $url[1]) ? TRUE : FALSE;
                 if($M == TRUE){
-                    $url[0]::$url[1]($url[2]);  
+                    $new = new $url[0];
+                    $new->$url[1]($url[2]);                    
+                    
                 } else {
                     throw new Exception(Error::init(1000),1000);
                     return false;                    
@@ -35,7 +38,9 @@ class Bootstrap {
             }elseif(!empty($url[1])){
                 $M = method_exists($url[0], $url[1]) ? TRUE : FALSE;
                 if($M == TRUE){
-                    $url[0]::$url[1]();  
+                    $new = new $url[0];
+                    $new->$url[1]();
+                    
                 } else {
                     throw new Exception(Error::init(1000),1000);
                     return false;                    
@@ -43,12 +48,14 @@ class Bootstrap {
                 
                 
             }else{
-                $url[0]::init();
+                
+                $new = new $url[0];
+                $new->index();
             }
 
         } else {
  
-            Index::init();
+            new Index();
 
         }
 

@@ -2,15 +2,15 @@
 
 class Controller {
 
-    public static function view($page, $arg=FALSE) {
+    public function view($page, $arg=FALSE) {
         
         $data = (object)$arg;
-        View::init($page,$arg);
+        new View($page,$arg);
     }
     
-    public static function model($model,$method,$arg=false) {
+    public function model($model,$method,$arg=false) {
         
-        return $model::$method($arg);
+        new Model();
     }    
 
 }

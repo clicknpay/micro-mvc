@@ -2,7 +2,7 @@
 
 class View {
 
-    public static function init($page,$arg=FALSE) {
+    public function __construct($page,$arg=FALSE) {
         
         $data = (object)$arg;
         require V_PATH.$page.'.php'; 

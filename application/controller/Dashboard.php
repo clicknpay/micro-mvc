@@ -2,11 +2,11 @@
 
 class Dashboard extends Controller {
 
-    public static function init() {
+    public function index() {
        
         if(!empty($_SESSION)){
             $data['page']='dashboard';
-            parent::view('dashboard_view',$data);
+            $this->view('dashboard_view',$data);
         
         }else{
             header('location:'.URL_PATH.'page/login/error');
@@ -15,9 +15,10 @@ class Dashboard extends Controller {
   
     }
     
-    public static function logout() {
+    public function logout() {
         
-        Session::destroy();
+        $session = new Session(); 
+        $session->destroy();
         header('location:'.URL_PATH.'page/login');
 
     }

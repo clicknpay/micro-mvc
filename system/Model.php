@@ -2,10 +2,10 @@
 
 class Model{
 
-    public static function init() {
+    public function __construct() {
         
-        // place sharred business login here
-        echo 'Main Model';
+        // place sharred business logic here
+        //echo 'Main Model';
         
     }
 

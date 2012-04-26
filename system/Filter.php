@@ -2,6 +2,19 @@
 
 class Filter {
 
+    
+    public static function primaryFilter($arg=false) {
+        
+        $arg = strip_tags($arg);
+        $arg = preg_replace('/[^(\x20-\x7F)\x0A]*/', '', $arg); //Remove Non ASCII Characters 
+        $arg = str_replace(array('`','^','%','#','*'), '', $arg);
+        $arg = filter_var($arg, FILTER_SANITIZE_STRING);
+        $arg = trim($arg);
+        return $arg;
+        
+    }    
+    
+    
     public static function url($arg) {
         
         $arg = strip_tags($arg);
